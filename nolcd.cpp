@@ -31,7 +31,7 @@ void loop() {
     Serial.print(moisturePercentage);
     Serial.println("%");
 
-    if (value < 300) {
+    if (value > 800) {
       isPumping = true;
       Serial.println("Pump ON for 3 seconds...");
       digitalWrite(PUMP_PIN, HIGH);
@@ -45,7 +45,6 @@ void loop() {
     }
   }
 
-  // Handle 5-second countdown after pump
   if (isInCountdown) {
     for (int i = 5; i > 0; i--) {
       Serial.print("Waiting ");
@@ -54,7 +53,7 @@ void loop() {
       delay(1000);
     }
     isInCountdown = false;
-    isWaiting = false; // Reset
+    isWaiting = false; 
     Serial.println("Resuming sensor check every 3 seconds...");
   }
 }
