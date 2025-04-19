@@ -90,9 +90,6 @@ void setup() {
 void loop() {
   RtcDateTime now = Rtc.GetDateTime();
 
-  // printDateTime(now);
-  // Serial.println();
-
   if (!now.IsValid()) {
     Serial.println("RTC lost confidence in the DateTime!");
   }
